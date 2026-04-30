@@ -1,0 +1,20 @@
+@use 'variable' as var;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+@mixin background-color {
+  @each $className in var.$classNames {
+    $index_key: index(var.$classNames, $className);
+
+    .#{$className} {
+      background-color: nth(var.$buttonColor, $index_key);
+    }
+  }
+}
